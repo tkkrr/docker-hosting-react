@@ -1,0 +1,39 @@
+version: '2.2'
+services:
+    proxy:
+        image: nginx:latest
+        container_name: proxy
+        volumes:
+            - ./proxy/conf.d:/etc/nginx/conf.d
+            - ./proxy/nginx.conf:/etc/nginx/nginx.conf
+            - ./proxy/html:/usr/share/nginx/html
+        ports: 
+            - "80:80"
+        links:
+            - hosting
+            - elasticsearch
+
+    hosting:
+        image: nginx:latest
+        container_name: hosting
+        volumes: 
+            - ./dist:/usr/share/nginx/html
+        ports:
+            - "8080:80"
+    
+    elasticsearch:
+        build: ./es
+        container_name: elasticsearch
+        environment:
+            - cluster.name=docker-cluster
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        volumes:
+            - ./es/data:/usr/share/elasticsearch/data
+            - ./es/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+        ports:
+            - 9200:9200

@@ -1,0 +1,5 @@
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+# htpp.port: 9200
+http.cors.allow-origin: "/.*/"
+http.cors.enabled: true
