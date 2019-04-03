@@ -3,17 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const worker = require.resolve('pdfjs-dist/build/pdf.worker.entry');
 
 module.exports = (env, options) => {
-    
-    const buildPath = env ? env.path || "" : ""
-    
     return {
         mode: "production",
         entry: {
-            'main': path.resolve(__dirname, buildPath, "./src/index.jsx"),
+            'main': path.resolve(__dirname, "./src/index.jsx"),
             'pdf.worker': worker
         },
         output: {
-            path: path.resolve(__dirname, buildPath, './dist'),
+            path: path.resolve(__dirname, './dist'),
             publicPath: '',
             filename: '[name].bundle.js',
         },
@@ -42,7 +39,7 @@ module.exports = (env, options) => {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: path.resolve(__dirname, buildPath, './src/index.html')
+                template: path.resolve(__dirname, './src/index.html')
             })
         ]
     }

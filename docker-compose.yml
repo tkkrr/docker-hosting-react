@@ -14,9 +14,7 @@ services:
             - elasticsearch
 
     hosting:
-        build: 
-            context: ./
-            dockerfile: ./frontend/Dockerfile
+        build: ./frontend
         container_name: hosting
         ports:
             - "8080:80"

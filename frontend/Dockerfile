@@ -1,6 +1,6 @@
 FROM nginx:latest
 
-COPY ./frontend ./package.json ./webpack.config.js /app/
+COPY . /app/
 
 WORKDIR /app
 

@@ -5,19 +5,27 @@ React.js製静的サイトとElasticsearchが連携したWEBアプリケーシ�
 # TL;DR
 ### Development
 ```shell
-$ npm install           # Install require package
-$ npm run dev:docker    # Start docker development server 
+$ npm start
 ```
+
+or 
+
 ```shell
-### Please run in another shell ###
-$ npm run watch         # webpack build in watch mode
+$ npm install           # Install require package
+$ npm run docker:dev    # Start docker development server 
+
+### Run in another shell ###
+$ npm run frontend:watch    # webpack build in watch mode
 ```
 
 ### Production
 ```shell
 $ npm install           # Install require package
-$ npm run build:docker  # Create bundle file & docker image
+$ npm run docker:build  # Create bundle file & docker image
 $ docker-compose up     # Serve application
+```
+```shell
+$ docker-compose up -d  # Serve application in daemon
 ```
 
 ### Clean up docker process
