@@ -3,11 +3,25 @@
 React.js製静的サイトとElasticsearchが連携したWEBアプリケーションをDockerで運用する。
 
 # TL;DR
+### Development
+```shell
+$ npm install           # Install require package
+$ npm run dev:docker    # Start docker development server 
+```
+```shell
+### Please run in another shell ###
+$ npm run watch         # webpack build in watch mode
+```
+
+### Production
 ```shell
 $ npm install           # Install require package
 $ npm run build:docker  # Create bundle file & docker image
 $ docker-compose up     # Serve application
+```
 
+### Clean up docker process
+```shell
 $ docker-compose down   # Clean up docker proccess
 ```
 
