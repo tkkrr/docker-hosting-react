@@ -1,15 +1,21 @@
 {
   "name": "pdf-js-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is test application",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tkkrr/docker-hosting-react.git"
+  },
   "scripts": {
+    "watch": "webpack --watch --progress --env.path=frontend",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --hot --inline --watch-content-base --content-base dist/",
-    "build:docker": "npm run build && docker-compose build"
+    "dev:docker": "docker-compose -f docker-develop.yml up",
+    "build:docker": "docker-compose build --no-cache",
+    "clean:docker": "docker-compose down"
   },
   "keywords": [],
-  "author": "",
+  "author": "tucker",
   "license": "ISC",
   "dependencies": {
     "pdfjs-dist": "^2.0.943",

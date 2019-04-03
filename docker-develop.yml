@@ -14,10 +14,10 @@ services:
             - elasticsearch
 
     hosting:
-        build: 
-            context: ./
-            dockerfile: ./frontend/Dockerfile
+        image: nginx:latest
         container_name: hosting
+        volumes:
+            - ./frontend/dist:/usr/share/nginx/html
         ports:
             - "8080:80"
     
