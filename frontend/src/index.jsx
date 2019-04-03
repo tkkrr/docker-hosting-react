@@ -96,6 +96,7 @@ const App = props => {
 		}
 	)
 
+
 	return <React.Fragment>
 		<p>react pdf check</p>
 		<p id="doi">doi is {doi}</p>
